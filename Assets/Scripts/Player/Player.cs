@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    [SerializeField] private int speed;
+    public int speed;
 
     #region State
     public PlayerStateMachine stateMachine {  get; private set; }
     public PlayerIdleState idleState { get; private set; }
+    public PlayerRunState runState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -18,6 +19,7 @@ public class Player : Entity
         stateMachine = new PlayerStateMachine();
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
+        runState = new PlayerRunState(this, stateMachine, "Run");
     }
 
     protected override void Start()
@@ -31,6 +33,8 @@ public class Player : Entity
     {
         base.Update();
         RotatePlayerFollowMouse();
+
+        stateMachine.currentState.Update();
     }
 
     private void RotatePlayerFollowMouse()

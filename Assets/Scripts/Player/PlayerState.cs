@@ -7,6 +7,8 @@ public class PlayerState
     protected PlayerStateMachine stateMachie;
     protected Player player;
 
+    protected Vector3 input;
+
     private string animBool;
 
     protected float stateTimer;
@@ -28,6 +30,9 @@ public class PlayerState
 
     public virtual void Update()
     {
+        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input.Normalize();
+
         stateTimer -= Time.deltaTime;
     }
 

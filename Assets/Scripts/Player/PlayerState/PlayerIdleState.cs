@@ -21,5 +21,7 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (input != Vector3.zero)
+            player.stateMachine.ChangeState(player.runState);
     }
 }
