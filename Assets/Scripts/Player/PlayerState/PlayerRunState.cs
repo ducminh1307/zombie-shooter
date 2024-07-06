@@ -25,11 +25,10 @@ public class PlayerRunState : PlayerState
 
         Quaternion rotation = Quaternion.Euler(0, 45, 0);
         Vector3 finalDirection = rotation * input;
+        finalDirection.Normalize();
         player.rb.velocity = finalDirection.normalized * player.speed;
 
         if (input == Vector3.zero)
             player.stateMachine.ChangeState(player.idleState);
-
-        Debug.Log(player.rb.velocity);
     }
 }
