@@ -7,12 +7,15 @@ public class Entity : MonoBehaviour
     public Rigidbody rb {  get; private set; }
     public Animator anim {  get; private set; }
 
-    [Header("Collision detail")]
-    [SerializeField] protected Transform attackChecker;
-    [SerializeField] protected float attackRadius;
+    protected virtual void Awake()
+    {
+
+    }
+
     protected virtual void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
