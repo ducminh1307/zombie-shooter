@@ -22,13 +22,11 @@ public class PlayerRunState : PlayerState
     public override void Update()
     {
         base.Update();
-
-        Quaternion rotation = Quaternion.Euler(0, 45, 0);
-        Vector3 finalDirection = rotation * input;
-        finalDirection.Normalize();
-        player.rb.velocity = finalDirection.normalized * player.speed;
+        player.Move();
 
         if (input == Vector3.zero)
             player.stateMachine.ChangeState(player.idleState);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            player.stateMachine.ChangeState(player.firingState);
     }
 }

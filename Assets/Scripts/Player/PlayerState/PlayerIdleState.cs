@@ -11,11 +11,13 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     public override void Update()
@@ -23,5 +25,9 @@ public class PlayerIdleState : PlayerState
         base.Update();
         if (input != Vector3.zero)
             player.stateMachine.ChangeState(player.runState);
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            player.stateMachine.ChangeState(player.firingState);
+
     }
 }

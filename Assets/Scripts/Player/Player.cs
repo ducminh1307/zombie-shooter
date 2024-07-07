@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public int speed;
+    public float speed;
 
     #region State
     public PlayerStateMachine stateMachine {  get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerRunState runState { get; private set; }
+    public PlayerFiringState firingState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -20,6 +21,7 @@ public class Player : Entity
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         runState = new PlayerRunState(this, stateMachine, "Run");
+        firingState = new PlayerFiringState(this, stateMachine, "Firing");
     }
 
     protected override void Start()
@@ -53,7 +55,7 @@ public class Player : Entity
             Vector3 targetPosition = ray.GetPoint(hitDistance);
 
             // Tinh toan huong cua nhan vat va diem va cham
-            Vector3 direction = targetPosition - transform.position;
+            Vector3 direction = (targetPosition - transform.position).normalized;
 
             // Reset truc y = 0 de nhan vat khong quay truc y
             direction.y = 0;
@@ -64,5 +66,12 @@ public class Player : Entity
             // Xoay nhan vat
             transform.rotation = rotation;
         }
+    }
+
+    public void Move()
+    {
+        Quaternion rotation = Quaternion.Euler(0, 45, 0);
+        Vector3 finalDirection = rotation * stateMachine.currentState.input.normalized; //Xoay huong cua input 45 do
+        rb.velocity = finalDirection * speed;
     }
 }
