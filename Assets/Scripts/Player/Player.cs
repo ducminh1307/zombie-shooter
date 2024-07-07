@@ -10,7 +10,7 @@ public class Player : Entity
     public PlayerStateMachine stateMachine {  get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerRunState runState { get; private set; }
-    public PlayerFiringState firingState { get; private set; }
+    public PlayerRfileFiringState firingState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -21,7 +21,7 @@ public class Player : Entity
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         runState = new PlayerRunState(this, stateMachine, "Run");
-        firingState = new PlayerFiringState(this, stateMachine, "Firing");
+        firingState = new PlayerRfileFiringState(this, stateMachine, "Firing");
     }
 
     protected override void Start()

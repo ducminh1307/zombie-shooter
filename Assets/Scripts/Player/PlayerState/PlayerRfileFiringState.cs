@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFiringState : PlayerState
+public class PlayerRfileFiringState : PlayerState
 {
     private float defaultSpeed;
-    public PlayerFiringState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
+    public PlayerRfileFiringState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
     {
     }
 

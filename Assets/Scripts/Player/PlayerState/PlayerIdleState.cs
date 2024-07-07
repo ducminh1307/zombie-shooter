@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class PlayerIdleState : PlayerMovementState
 {
     public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
     {
@@ -25,9 +25,5 @@ public class PlayerIdleState : PlayerState
         base.Update();
         if (input != Vector3.zero)
             player.stateMachine.ChangeState(player.runState);
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            player.stateMachine.ChangeState(player.firingState);
-
     }
 }
