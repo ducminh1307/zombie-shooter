@@ -5,12 +5,14 @@ using UnityEngine;
 public class Player : Entity
 {
     public float speed;
+    public BaseWeapon currentWeapon { get; private set; }
 
     #region State
     public PlayerStateMachine stateMachine {  get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerRunState runState { get; private set; }
-    public PlayerRfileFiringState firingState { get; private set; }
+    public PlayerRfileFireState firingState { get; private set; }
+    public PlayerAimState aimState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -21,12 +23,14 @@ public class Player : Entity
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         runState = new PlayerRunState(this, stateMachine, "Run");
-        firingState = new PlayerRfileFiringState(this, stateMachine, "Firing");
+        firingState = new PlayerRfileFireState(this, stateMachine, "Fire");
+        aimState = new PlayerAimState(this, stateMachine, "Aim");
     }
 
     protected override void Start()
     {
         base.Start();
+        currentWeapon = GetComponentInChildren<BaseWeapon>();
 
         stateMachine.Initialize(idleState);
     }

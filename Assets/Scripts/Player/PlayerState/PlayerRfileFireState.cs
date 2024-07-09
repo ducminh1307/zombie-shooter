@@ -2,31 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRfileFiringState : PlayerState
+public class PlayerRfileFireState : PlayerWeaponState
 {
     private float defaultSpeed;
-    public PlayerRfileFiringState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
+    public PlayerRfileFireState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-        defaultSpeed = player.speed;
-        player.speed *= 0.3f;
     }
 
     public override void Exit()
     {
         base.Exit();
-        player.speed = defaultSpeed;
     }
 
     public override void Update()
     {
         base.Update();
-        if (input != Vector3.zero)
-            player.Move();
+
+        if (stateTimer <= 0)
+        {
+            player.currentWeapon.Fire();
+            stateTimer = player.currentWeapon.weapon.fireRate;
+        }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {

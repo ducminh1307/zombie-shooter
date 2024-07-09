@@ -23,6 +23,16 @@ public class PlayerMovementState : PlayerState
         base.Update();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            player.stateMachine.ChangeState(player.firingState);
+        {
+            switch (player.currentWeapon.weapon.typeWeapon)
+            {
+                case WeaponType.Rfile:
+                    player.stateMachine.ChangeState(player.firingState);
+                    break;
+                case WeaponType.Grenade:
+                    player.stateMachine.ChangeState(player.aimState);
+                    break;
+            }
+        }
     }
 }
