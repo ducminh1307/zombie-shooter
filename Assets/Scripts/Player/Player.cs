@@ -79,4 +79,9 @@ public class Player : Entity
         Vector3 finalDirection = rotation * stateMachine.currentState.input.normalized; //Xoay huong cua input 45 do
         rb.velocity = finalDirection * speed;
     }
+
+    public override void Death()
+    {
+        base.Death();
+    }
 }

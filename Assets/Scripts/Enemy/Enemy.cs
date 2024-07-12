@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : Entity
 {
+    [field:SerializeField] public int damage {  get; private set; }
+
     [Header("Collison info")]
     [SerializeField] private float playerInAttackRange = 1f;
     [SerializeField] private LayerMask whatIsPlayer;
@@ -21,6 +23,7 @@ public class Enemy : Entity
 
     public EnemyChaseState chaseState {  get; private set; }
     public EnemyAttackState attackState {  get; private set; }
+    public EnemyDeathState deathState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -31,6 +34,7 @@ public class Enemy : Entity
 
         chaseState = new EnemyChaseState(this, stateMachine, "Run");
         attackState = new EnemyAttackState(this, stateMachine, "Attack");
+        deathState = new EnemyDeathState(this, stateMachine, "Die");
     }
 
     protected override void Start()
@@ -45,6 +49,11 @@ public class Enemy : Entity
     {
         base.Update();
         stateMachine.currentState.Update();
+    }
+
+    public override void Death()
+    {
+        stateMachine.ChangeState(deathState);
     }
 
     private void OnDrawGizmos()
@@ -63,9 +72,13 @@ public class Enemy : Entity
         {
             if (hit.GetComponent<Player>() != null)
             {
-                //hit.GetComponent<Player>().stats.TakeDamage(stats.damage);
-                Debug.Log("Damage");
+                hit.GetComponent<Player>().stats.TakeDamage(damage);
             }
         }
+    }
+
+    public void DeadthTrigger()
+    {
+        Destroy(gameObject);
     }
 }

@@ -1944,9 +1944,10 @@ GameObject:
   - component: {fileID: 3932144663067650389}
   - component: {fileID: 5231035135041162976}
   - component: {fileID: 5754400219103868653}
+  - component: {fileID: 1578917707261125721}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2093,6 +2094,20 @@ MonoBehaviour:
     m_Bits: 64
   attackCheck: {fileID: 7136722053747402367}
   attackCheckRadius: 0.5
+--- !u!114 &1578917707261125721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710112011257009495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3124db4f66c5f46a081153ba86c216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  damage: 3
 --- !u!1 &4725491107788608303
 GameObject:
   m_ObjectHideFlags: 0

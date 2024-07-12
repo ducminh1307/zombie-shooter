@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   weaponType: 0
-  damage: 2
+  damage: 10
   fireRate: 0.15
   bulletForce: 15
