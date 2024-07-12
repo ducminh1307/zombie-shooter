@@ -15,4 +15,4 @@ MonoBehaviour:
   weaponType: 1
   damage: 20
   fireRate: 3
-  bulletForce: 8
+  bulletForce: 10

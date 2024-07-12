@@ -30,7 +30,8 @@ public class PlayerMovementState : PlayerState
                     player.stateMachine.ChangeState(player.firingState);
                     break;
                 case WeaponType.Grenade:
-                    player.stateMachine.ChangeState(player.aimState);
+                    if (player.lastTimeAttack + player.currentWeapon.weapon.fireRate <= Time.time)
+                        player.stateMachine.ChangeState(player.aimState);
                     break;
             }
         }

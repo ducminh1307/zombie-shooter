@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerWeaponState : PlayerState
 {
     private float defaultSpeed;
+    protected float lastTimeAttacked;
     public PlayerWeaponState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
     {
     }
@@ -28,5 +29,13 @@ public class PlayerWeaponState : PlayerState
         
         if (input != Vector3.zero)
             player.Move();
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            if (input == Vector3.zero)
+                player.stateMachine.ChangeState(player.idleState);
+            else
+                player.stateMachine.ChangeState(player.runState);
+        }
     }
 }

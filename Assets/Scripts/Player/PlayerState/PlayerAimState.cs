@@ -16,13 +16,13 @@ public class PlayerAimState : PlayerWeaponState
     public override void Exit()
     {
         base.Exit();
+
+        player.currentWeapon.Fire();
+        player.lastTimeAttack = Time.time;
     }
 
     public override void Update()
     {
         base.Update();
-
-        if (Input.GetMouseButtonUp(0))
-            player.stateMachine.ChangeState(player.idleState);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rfile : BaseWeapon
+public class RfileGun : BaseWeapon
 {
     public override void Fire()
     {
@@ -10,7 +10,7 @@ public class Rfile : BaseWeapon
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = firePoint.position;
 
-        Vector3 force = firePoint.up * weapon.bulletForce;
+        Vector3 force = firePoint.forward * weapon.bulletForce;
 
         bullet.transform.rotation = Quaternion.LookRotation(force) * Quaternion.Euler(0, 90, 90);
         bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);

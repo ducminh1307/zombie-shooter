@@ -6,6 +6,7 @@ public class Player : Entity
 {
     public float speed;
     public BaseWeapon currentWeapon { get; private set; }
+    [HideInInspector] public float lastTimeAttack;
 
     #region State
     public PlayerStateMachine stateMachine {  get; private set; }

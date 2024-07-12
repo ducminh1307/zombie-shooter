@@ -821,7 +821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609e94d0222ee8b4a8c3749a1945d608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
+  lastTimeAttack: 0
 --- !u!1 &2830189500856470826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,15 +2435,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1481491159331014112, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
+      propertyPath: m_Name
+      value: Fire Point
+      objectReference: {fileID: 0}
     - target: {fileID: 5966057978120370739, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
       propertyPath: m_Name
       value: Automatic_Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 5966057978120370739, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5966057978120370739, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6412266426574498585}
   m_SourcePrefab: {fileID: 100100000, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
+--- !u!1 &813696168555034378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5966057978120370739, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
+  m_PrefabInstance: {fileID: 6449548590979108153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6412266426574498585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813696168555034378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3ba1813064837419af957c0f97e1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: ff6ce3c6633b28148b799f2e75f7185e, type: 2}
+  bulletPrefab: {fileID: 4313368311362981891, guid: 70890dbf04c4bf34e83e6411ba31a243, type: 3}
+  firePoint: {fileID: 817801775127321948}
+--- !u!4 &817801775127321948 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5969534655270719589, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
+  m_PrefabInstance: {fileID: 6449548590979108153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5605579011582730667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1462088974031416466, guid: acc46854ad5151f4aadb23954b19695c, type: 3}
@@ -2503,8 +2540,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7797508516528055526, guid: 03d83c962eb80cd43851903d2f93d2bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2692158815406449657}
   m_SourcePrefab: {fileID: 100100000, guid: 03d83c962eb80cd43851903d2f93d2bc, type: 3}
+--- !u!4 &1901529038960550830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5077572646061714429, guid: 03d83c962eb80cd43851903d2f93d2bc, type: 3}
+  m_PrefabInstance: {fileID: 6635139246265649235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3468597805949791413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7797508516528055526, guid: 03d83c962eb80cd43851903d2f93d2bc, type: 3}
+  m_PrefabInstance: {fileID: 6635139246265649235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2692158815406449657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468597805949791413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0989c44b3eb4f144f9bcb6d257cbfcc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: f72a1682c2adc7f438cf767ef51f28d9, type: 2}
+  bulletPrefab: {fileID: 4313368311362981891, guid: 5d043d3712e82834183c7e3f0c6332dd, type: 3}
+  firePoint: {fileID: 1901529038960550830}
 --- !u!4 &7462065565472146311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4294792361584528340, guid: 03d83c962eb80cd43851903d2f93d2bc, type: 3}

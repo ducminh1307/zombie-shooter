@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerRfileFireState : PlayerWeaponState
 {
-    private float defaultSpeed;
     public PlayerRfileFireState(Player _player, PlayerStateMachine _stateMachine, string _animBool) : base(_player, _stateMachine, _animBool)
     {
     }
@@ -23,10 +22,10 @@ public class PlayerRfileFireState : PlayerWeaponState
     {
         base.Update();
 
-        if (stateTimer <= 0)
+        if (player.lastTimeAttack + player.currentWeapon.weapon.fireRate <= Time.time)
         {
             player.currentWeapon.Fire();
-            stateTimer = player.currentWeapon.weapon.fireRate;
+            player.lastTimeAttack = Time.time;
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
