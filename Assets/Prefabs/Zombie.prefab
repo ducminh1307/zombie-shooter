@@ -2088,6 +2088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d97927769ba134e81feadfd31d0e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <damage>k__BackingField: 5
   playerInAttackRange: 1
   whatIsPlayer:
     serializedVersion: 2
@@ -2107,7 +2108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  damage: 3
 --- !u!1 &4725491107788608303
 GameObject:
   m_ObjectHideFlags: 0

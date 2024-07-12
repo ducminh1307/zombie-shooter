@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGameMenuScript : MonoBehaviour
+public class OverGameScript : MonoBehaviour
 {
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
@@ -11,11 +11,13 @@ public class InGameMenuScript : MonoBehaviour
     private void Awake()
     {
         GameManager.onPlayerWin += WinGame;
+        Player.onPlayerDeath += LoseGame;
     }
 
     private void OnDestroy()
     {
         GameManager.onPlayerWin -= WinGame;
+        Player.onPlayerDeath -= LoseGame;
     }
 
     private void WinGame()

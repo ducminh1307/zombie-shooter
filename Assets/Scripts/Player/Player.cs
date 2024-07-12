@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Entity
 {
     public float speed;
     public BaseWeapon currentWeapon { get; private set; }
     [HideInInspector] public float lastTimeAttack;
+
+    public static UnityAction onPlayerDeath;
 
     #region State
     public PlayerStateMachine stateMachine {  get; private set; }
@@ -83,5 +86,9 @@ public class Player : Entity
     public override void Death()
     {
         base.Death();
+        int layerDefault = LayerMask.NameToLayer("Default");
+        gameObject.layer = layerDefault;
+
+        onPlayerDeath.Invoke();
     }
 }
