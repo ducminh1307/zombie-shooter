@@ -36,6 +36,8 @@ public class Door : MonoBehaviour
         if (_doorId != doorId) return;
         if (numberEnemies <= 0) return;
 
+        EnemyManager.instance.RegisterEnemies(numberEnemies);
+
         for (int i = 0; i < numberEnemies; i++)
         {
             Instantiate(
@@ -48,7 +50,10 @@ public class Door : MonoBehaviour
     private void OpenDoor(int _doorId)
     {
         if (_doorId == doorId)
+        {
             StartCoroutine(SlideDoorDown());
+            DoorManager.instance.DoorOpened();
+        }
     }
 
     private IEnumerator SlideDoorDown()

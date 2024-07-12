@@ -16,13 +16,14 @@ public class SceneLoaderManager : MonoBehaviour
         if (instance == null)
             instance = this;
         else
-            Destroy(instance);
+            Destroy(gameObject);
 
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void LoadScene(int sceneId)
     {
+        Time.timeScale = 1.0f;
         StartCoroutine(LoadSceneCoroutine(sceneId));
     }
 

@@ -79,6 +79,7 @@ public class Enemy : Entity
 
     public void DeadthTrigger()
     {
+        EnemyManager.instance.EnemyDefeated();
         Destroy(gameObject);
     }
 }
