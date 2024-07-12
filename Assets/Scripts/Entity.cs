@@ -24,7 +24,7 @@ public class Entity : MonoBehaviour
         
     }
 
-    protected virtual void FixedUpdate()
+    public virtual void Death()
     {
         
     }

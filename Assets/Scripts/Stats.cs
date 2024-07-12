@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int maxHealth;
+    public int damage;
+
+    private Entity entity;
+
+    public int currentHealth { get; private set; }
+
+    void Awake()
     {
-        
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        entity = GetComponent<Entity>();
+    }
+
+    public void TakeDamage(int _damage)
+    {
+        currentHealth -= _damage;
+
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        entity.Death();
     }
 }
