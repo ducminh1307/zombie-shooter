@@ -783,23 +783,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitX.x
-      value: -2.4
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitX.y
-      value: 0.6
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitZ.x
-      value: -20.7
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitZ.y
-      value: -17.3
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: numberEnemies
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2064,19 +2064,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitX.x
-      value: -2.4
+      value: -15.2
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitX.y
-      value: 0.6
+      value: -7.8
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitZ.x
-      value: -20.7
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: limitZ.y
-      value: -17.3
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 9019432189532054491, guid: 38c824edd2f4c344cb3a12d3a0760361, type: 3}
       propertyPath: numberEnemies
@@ -5639,7 +5639,7 @@ Transform:
   m_GameObject: {fileID: 1950218083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0, z: -20.71}
+  m_LocalPosition: {x: 14.02, y: 0, z: -11.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
