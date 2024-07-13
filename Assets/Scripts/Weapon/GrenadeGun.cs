@@ -16,8 +16,8 @@ public class GrenadeGun : BaseWeapon
         bullet.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
     }
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
     }
 }

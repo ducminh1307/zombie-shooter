@@ -91,4 +91,10 @@ public class Player : Entity
 
         onPlayerDeath.Invoke();
     }
+
+    public void SwitchGun(BaseWeapon _newWeapon)
+    {
+        currentWeapon = _newWeapon;
+        currentWeapon.InitializeWeapon();
+    }
 }
