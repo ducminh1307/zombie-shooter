@@ -14,8 +14,11 @@ public class GunItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SwitchGun();
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            SwitchGun();
+            Destroy(gameObject);
+        }
     }
 
     private void SwitchGun()
