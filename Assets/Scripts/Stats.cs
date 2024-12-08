@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
@@ -10,7 +8,7 @@ public class Stats : MonoBehaviour
 
     public int currentHealth { get; private set; }
 
-    void Awake()
+    void OnEnable()
     {
         currentHealth = maxHealth;
     }

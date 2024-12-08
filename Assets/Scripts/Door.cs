@@ -7,13 +7,13 @@ public class Door : MonoBehaviour
     [Header("Door")]
     [SerializeField] private int doorId;
     [SerializeField] private GameObject door;
-    [SerializeField] private float slideDistance = 3.0f;
-    [SerializeField] private float slideDuration = 1.0f;
+    private const float SlideDistance = 2.5f;
+    private const float SlideDuration = 1.0f;
+    private CheckPlayer _checkPlayer;
 
-    private Vector3 initialPosition;
+    private Vector3 _initialPosition;
 
     [Header("Spawn Enemies")]
-    [SerializeField] GameObject enemy;
     [SerializeField] private int numberEnemies;
     [SerializeField] Vector2 limitX;
     [SerializeField] Vector2 limitZ;
@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
     {
         CheckPlayer.onPlayerInFrontDoor += SpawnEnemies;
         CheckPlayer.onPlayerInFrontDoor += OpenDoor;
-        initialPosition = door.transform.position;
+        _initialPosition = door.transform.position;
     }
 
     private void OnDestroy()
@@ -40,10 +40,7 @@ public class Door : MonoBehaviour
 
         for (int i = 0; i < numberEnemies; i++)
         {
-            Instantiate(
-                enemy,
-                new Vector3(Random.Range(limitX.x, limitX.y), .5f, Random.Range(limitZ.x, limitZ.y)),
-                Quaternion.identity);
+            PoolManager.instance.GetObject(PoolType.Zombie, new Vector3(Random.Range(limitX.x, limitX.y), .5f, Random.Range(limitZ.x, limitZ.y)));
         }
     }
 
@@ -58,12 +55,12 @@ public class Door : MonoBehaviour
 
     private IEnumerator SlideDoorDown()
     {
-        Vector3 targetPosition = initialPosition - new Vector3(0, slideDistance, 0);
+        Vector3 targetPosition = _initialPosition - new Vector3(0, SlideDistance, 0);
         float elapsedTime = 0;
 
-        while (elapsedTime < slideDuration)
+        while (elapsedTime < SlideDuration)
         {
-            door.transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / slideDuration);
+            door.transform.position = Vector3.Lerp(_initialPosition, targetPosition, elapsedTime / SlideDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

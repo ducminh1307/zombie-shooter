@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -35,6 +34,13 @@ public class Enemy : Entity
         chaseState = new EnemyChaseState(this, stateMachine, "Run");
         attackState = new EnemyAttackState(this, stateMachine, "Attack");
         deathState = new EnemyDeathState(this, stateMachine, "Die");
+    }
+
+    private void OnEnable()
+    {
+        if (stateMachine.currentState != deathState)
+            return;
+        stateMachine.ChangeState(chaseState);
     }
 
     protected override void Start()
@@ -80,6 +86,6 @@ public class Enemy : Entity
     public void DeadthTrigger()
     {
         EnemyManager.instance.EnemyDefeated();
-        Destroy(gameObject);
+        PoolManager.instance.ReturnObject(gameObject);
     }
 }
